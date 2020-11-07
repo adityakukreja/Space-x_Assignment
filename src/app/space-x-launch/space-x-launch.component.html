@@ -1,0 +1,69 @@
+<div class="heading">
+    SpaceX Launch Programs
+</div>
+
+<div class="row">
+    
+    <div class="card responsiveCss" style="display: inline-block;">
+        <div class="container">
+            <span class="subheading">Filters</span>
+
+            <div class="filters">Launch Year</div>
+            <hr>
+            <div *ngFor="let year of yearList" style="display: inline-block;">
+                    <div class="cardValues" [id]="year" (click)="LaunchYearFilter(year)">
+                        <div class="container">
+                            {{year}}
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="filters">Successful Launch</div>
+            <hr>
+            <div *ngFor="let success of successfulLaunchList" style="display: inline-block;">
+                    <div class="cardValues" [id]="success" (click)="SucessfullLaunch(success)">
+                        <div class="container">
+                            {{success}}
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="filters">Successful Landing</div>
+                <hr>
+                <div *ngFor="let landing of successfulLaunchList" style="display: inline-block;">
+                        <div class="cardValues" id="landing{{landing}}" (click)="SucessfullLanding(landing)">
+                            <div class="container">
+                                {{landing}}
+                            </div>
+                        </div>
+                    </div>
+
+                
+        </div>
+    </div>
+
+    <div class="card1 responsiveCss marT" style="display: inline-block;height: 400px;"  *ngFor="let val of launchDetailsList">
+        <img src="{{val.links.mission_patch}}" alt="Avatar" style="width:100%;height: 250px;">
+        <div class="container">
+            <div class="missionName">{{val.mission_name}} #{{val.flight_number}}</div>
+
+            <div class="marT"><b>Mission Id's :</b> <span>{{val.mission_id}}</span></div>
+
+            <div class="marT"><b>Launch Year :</b> <span>{{val.launch_year}}</span></div>
+
+            <div class="marT"><b>Successful Launch :</b> <span>{{val.launch_success}}</span></div>
+
+            <div class="marT"><b>Successful Landing :</b> <span></span></div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+<div class="Name">
+    Developed By Aditya Kukreja
+</div>
