@@ -15,7 +15,6 @@ yearList : string[] = ["2006","2007","2008","2009","2010","2011","2012","2013","
 successfulLaunchList : string[] = ["True","False"];
 launchDetailsList : SpaceXDeatailsModel[] =[];
 land_success : boolean;
-cores : boolean[]=[];
 launchyear : string ="";
 launchsuccess : string ="";
 landsuccess : string ="";
@@ -40,11 +39,12 @@ landsuccess : string ="";
           launchDetails.links.mission_patch = val.links.mission_patch;
           launchDetails.launch_year = val.launch_year;
           launchDetails.mission_id = val.mission_id;
-          this.land_success = val.rocket.first_stage.cores[0].land_success;
-          this.cores.push(this.land_success);
+          launchDetails.land_success=val.rocket.first_stage.cores[0].land_success
           this.launchDetailsList.push(launchDetails);
           
         }
+        console.log(this.launchDetailsList)
+
 
       },error =>{
         console.log(error);
@@ -65,8 +65,6 @@ landsuccess : string ="";
           launchDetails.links.mission_patch = val.links.mission_patch;
           launchDetails.launch_year = val.launch_year;
           launchDetails.mission_id = val.mission_id;
-          // this.land_success = val.rocket.first_stage.cores[0].land_success;
-          // this.cores.push(this.land_success);
           this.launchDetailsList.push(launchDetails);
           
         }
@@ -90,8 +88,6 @@ landsuccess : string ="";
           launchDetails.links.mission_patch = val.links.mission_patch;
           launchDetails.launch_year = val.launch_year;
           launchDetails.mission_id = val.mission_id;
-          // this.land_success = val.rocket.first_stage.cores[0].land_success;
-          // this.cores.push(this.land_success);
           this.launchDetailsList.push(launchDetails);
           
         }
@@ -116,8 +112,6 @@ landsuccess : string ="";
           launchDetails.links.mission_patch = val.links.mission_patch;
           launchDetails.launch_year = val.launch_year;
           launchDetails.mission_id = val.mission_id;
-          // this.land_success = val.rocket.first_stage.cores[0].land_success;
-          // this.cores.push(this.land_success);
           this.launchDetailsList.push(launchDetails);
           
         }

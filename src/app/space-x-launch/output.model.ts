@@ -8,6 +8,7 @@ export class SpaceXDeatailsModel{
     launch_success : string;
     links = new Links;
     rocket = new Rocket;
+    land_success:boolean;
     
 
 }
@@ -21,5 +22,5 @@ export class Rocket{
 }
 
 export class First_Stage{
-    cores : Cores[];
+    cores:Cores[];
 }
