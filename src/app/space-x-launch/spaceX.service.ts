@@ -24,6 +24,22 @@ export class spacexService{
         ))
     }
 
+    getAllLand_SuccessDetails(limit : string,land_success : string):Observable<SpaceXDeatailsModel[]>{
+        return this.http.get<SpaceXDeatailsModel[]>("https://api.spacexdata.com/v3/launches",{params:{"limit":limit,"land_success":land_success}}).pipe(map(
+            (res) => {
+                return res;
+            }
+        ))
+    }
+
+    getAllLaunch_yearDetails(limit : string,launch_year : string):Observable<SpaceXDeatailsModel[]>{
+        return this.http.get<SpaceXDeatailsModel[]>("https://api.spacexdata.com/v3/launches",{params:{"limit":limit,"launch_year":launch_year}}).pipe(map(
+            (res) => {
+                return res;
+            }
+        ))
+    }
+
     getAllFilters(limit : string,launch_success:string,land_success : string,launch_year : string):Observable<SpaceXDeatailsModel[]>{
         return this.http.get<SpaceXDeatailsModel[]>("https://api.spacexdata.com/v3/launches",{params:{"limit":limit,"launch_success":launch_success,"land_success":land_success,"launch_year":launch_year}}).pipe(map(
             (res) => {
@@ -41,4 +57,19 @@ export class spacexService{
         ))
     }
 
+    getLaunchAndyearFilter(limit : string,launch_success:string,launch_year : string):Observable<SpaceXDeatailsModel[]>{
+        return this.http.get<SpaceXDeatailsModel[]>("https://api.spacexdata.com/v3/launches",{params:{"limit":limit,"launch_success":launch_success,"launch_year":launch_year}}).pipe(map(
+            (res) => {
+                return res;
+            }
+        ))
+    }
+
+    getyearAndLandFilter(limit : string,launch_year:string,land_success : string):Observable<SpaceXDeatailsModel[]>{
+        return this.http.get<SpaceXDeatailsModel[]>("https://api.spacexdata.com/v3/launches",{params:{"limit":limit,"launch_year":launch_year,"land_success":land_success}}).pipe(map(
+            (res) => {
+                return res;
+            }
+        ))
+    } 
 }

@@ -29,7 +29,6 @@ landsuccess : string ="";
   getAllLaunchDetails(){
     this.service.getAllLaunchDetails("100").subscribe(
       res =>{
-        console.log(res)
 
         for(let val of res){
           const launchDetails = new SpaceXDeatailsModel;
@@ -43,11 +42,9 @@ landsuccess : string ="";
           this.launchDetailsList.push(launchDetails);
           
         }
-        console.log(this.launchDetailsList)
 
 
       },error =>{
-        console.log(error);
       }
     )
   }
@@ -55,7 +52,6 @@ landsuccess : string ="";
   getLaunchSuccessDetails(launch_sucess_filter : string){
     this.service.getAllLaunch_SuccessDetails("100",launch_sucess_filter).subscribe(
       res =>{
-        console.log(res)
         this.launchDetailsList=[];
         for(let val of res){
           const launchDetails = new SpaceXDeatailsModel;
@@ -65,20 +61,19 @@ landsuccess : string ="";
           launchDetails.links.mission_patch = val.links.mission_patch;
           launchDetails.launch_year = val.launch_year;
           launchDetails.mission_id = val.mission_id;
+          launchDetails.land_success=val.rocket.first_stage.cores[0].land_success
           this.launchDetailsList.push(launchDetails);
           
         }
 
       },error =>{
-        console.log(error);
       }
     )
   }
 
-  getAllFilters(launch_sucess_filter : string,land_success_filter : string,launch_year_filter : string){
-    this.service.getAllFilters("100",launch_sucess_filter,land_success_filter,launch_year_filter).subscribe(
+  getLandSuccessDetails(land_sucess_filter : string){
+    this.service.getAllLand_SuccessDetails("100",land_sucess_filter).subscribe(
       res =>{
-        console.log(res)
         this.launchDetailsList=[];
         for(let val of res){
           const launchDetails = new SpaceXDeatailsModel;
@@ -88,12 +83,58 @@ landsuccess : string ="";
           launchDetails.links.mission_patch = val.links.mission_patch;
           launchDetails.launch_year = val.launch_year;
           launchDetails.mission_id = val.mission_id;
+          launchDetails.land_success=val.rocket.first_stage.cores[0].land_success
           this.launchDetailsList.push(launchDetails);
           
         }
 
       },error =>{
-        console.log(error);
+      }
+    )
+  }
+
+  getLaunchyearDetails(launchyer_filter : string){
+    this.service.getAllLaunch_yearDetails("100",launchyer_filter).subscribe(
+      res =>{
+        this.launchDetailsList=[];
+        for(let val of res){
+          const launchDetails = new SpaceXDeatailsModel;
+          launchDetails.mission_name = val.mission_name;
+          launchDetails.flight_number = val.flight_number;
+          launchDetails.launch_success = val.launch_success;
+          launchDetails.links.mission_patch = val.links.mission_patch;
+          launchDetails.launch_year = val.launch_year;
+          launchDetails.mission_id = val.mission_id;
+          launchDetails.land_success=val.rocket.first_stage.cores[0].land_success
+          this.launchDetailsList.push(launchDetails);
+          
+        }
+
+      },error =>{
+      }
+    )
+  }
+
+  
+
+  getAllFilters(launch_sucess_filter : string,land_success_filter : string,launch_year_filter : string){
+    this.service.getAllFilters("100",launch_sucess_filter,land_success_filter,launch_year_filter).subscribe(
+      res =>{
+        this.launchDetailsList=[];
+        for(let val of res){
+          const launchDetails = new SpaceXDeatailsModel;
+          launchDetails.mission_name = val.mission_name;
+          launchDetails.flight_number = val.flight_number;
+          launchDetails.launch_success = val.launch_success;
+          launchDetails.links.mission_patch = val.links.mission_patch;
+          launchDetails.launch_year = val.launch_year;
+          launchDetails.mission_id = val.mission_id;
+          launchDetails.land_success=val.rocket.first_stage.cores[0].land_success
+          this.launchDetailsList.push(launchDetails);
+          
+        }
+
+      },error =>{
       }
     )
   }
@@ -102,7 +143,6 @@ landsuccess : string ="";
   getLaunchAndLandFilter(launch_sucess_filter : string,land_success_filter : string){
     this.service.getLaunchAndLandFilter("100",launch_sucess_filter,land_success_filter).subscribe(
       res =>{
-        console.log(res)
         this.launchDetailsList=[];
         for(let val of res){
           const launchDetails = new SpaceXDeatailsModel;
@@ -112,18 +152,61 @@ landsuccess : string ="";
           launchDetails.links.mission_patch = val.links.mission_patch;
           launchDetails.launch_year = val.launch_year;
           launchDetails.mission_id = val.mission_id;
+          launchDetails.land_success=val.rocket.first_stage.cores[0].land_success
           this.launchDetailsList.push(launchDetails);
           
         }
 
       },error =>{
-        console.log(error);
+      }
+    )
+  }
+
+  getLaunchAndyearFilter(launch_sucess_filter : string,launch_year_filter : string){
+    this.service.getLaunchAndyearFilter("100",launch_sucess_filter,launch_year_filter).subscribe(
+      res =>{
+        this.launchDetailsList=[];
+        for(let val of res){
+          const launchDetails = new SpaceXDeatailsModel;
+          launchDetails.mission_name = val.mission_name;
+          launchDetails.flight_number = val.flight_number;
+          launchDetails.launch_success = val.launch_success;
+          launchDetails.links.mission_patch = val.links.mission_patch;
+          launchDetails.launch_year = val.launch_year;
+          launchDetails.mission_id = val.mission_id;
+          launchDetails.land_success=val.rocket.first_stage.cores[0].land_success
+          this.launchDetailsList.push(launchDetails);
+          
+        }
+
+      },error =>{
+      }
+    )
+  }
+
+  getyearAndLandFilter(launch_year_filter : string,land_success_filter : string){
+    this.service.getyearAndLandFilter("100",launch_year_filter,land_success_filter).subscribe(
+      res =>{
+        this.launchDetailsList=[];
+        for(let val of res){
+          const launchDetails = new SpaceXDeatailsModel;
+          launchDetails.mission_name = val.mission_name;
+          launchDetails.flight_number = val.flight_number;
+          launchDetails.launch_success = val.launch_success;
+          launchDetails.links.mission_patch = val.links.mission_patch;
+          launchDetails.launch_year = val.launch_year;
+          launchDetails.mission_id = val.mission_id;
+          launchDetails.land_success=val.rocket.first_stage.cores[0].land_success
+          this.launchDetailsList.push(launchDetails);
+          
+        }
+
+      },error =>{
       }
     )
   }
 
   LaunchYearFilter(val : string){
-    console.log(val)
     this.launchyear=val
     for(let a of this.yearList){
           document.getElementById(a).classList.remove('active')
@@ -135,7 +218,17 @@ landsuccess : string ="";
       this.getAllFilters(this.launchsuccess,this.landsuccess,this.launchyear);
 
     }
+    else if(this.launchsuccess== "" && this.landsuccess != "" && this.launchyear != ""){
+      this.getyearAndLandFilter(this.launchyear,this.landsuccess);
 
+    }
+
+    else if(this.landsuccess == "" && this.launchsuccess != "" && this.launchyear != ""){
+      this.getLaunchAndyearFilter(this.launchsuccess,this.launchyear);
+    }
+      else if(this.landsuccess == "" && this.launchsuccess == "" && this.launchyear != ""){
+        this.getLaunchyearDetails(this.launchyear);
+      }
   }
 
   SucessfullLaunch(val: string){
@@ -166,6 +259,9 @@ landsuccess : string ="";
       this.getLaunchSuccessDetails(this.launchsuccess);
 
     }
+      else if(this.landsuccess == "" && this.launchsuccess != "" && this.launchyear != ""){
+        this.getLaunchAndyearFilter(this.launchsuccess,this.launchyear);
+      }
   }
 
   SucessfullLanding(val : string){
@@ -186,9 +282,16 @@ landsuccess : string ="";
       this.getAllFilters(this.launchsuccess,this.landsuccess,this.launchyear);
 
     }
-    else if(this.landsuccess!= "" && this.landsuccess != "" && this.launchyear == ""){
+    else if(this.landsuccess!= "" && this.launchsuccess != "" && this.launchyear == ""){
       this.getLaunchAndLandFilter(this.launchsuccess,this.landsuccess);
 
     }
+
+    else if(this.landsuccess != "" && this.launchsuccess == "" && this.launchyear == ""){
+      this.getLandSuccessDetails(this.landsuccess);
+    }
+      else if(this.landsuccess != "" && this.launchsuccess == "" && this.launchyear != ""){
+        this.getyearAndLandFilter(this.launchyear,this.landsuccess);
+      }
   }
 } 
