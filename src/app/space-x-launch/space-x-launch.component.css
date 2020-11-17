@@ -72,7 +72,7 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width: 15%;
-    height: 10100px;
+    height: 10860px;
     margin-top: 15px;
 }
 
@@ -144,4 +144,58 @@
     font-weight: 700;
     text-align: center;
     margin-top: 10px;
+}
+
+@media screen and (min-width:1440px){
+    .responsiveCss{
+        width: 1440px;
+        float: center;
+        align-items: center;
+    }
+
+.wholeWidth{
+    width: 1440px;
+    margin-left: auto;
+    margin-right: a; 
+}
+
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 220px;
+    height: 10100px;
+    margin-top: 15px;
+}
+
+.card1{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 20%;
+    margin-top: 15px;
+}
+
+.cardswidth{
+    width: 80%;
+}
+
+.cardValues{
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 90%;
+    margin-top: 5px;
+    border-radius :5px;
+    margin-left:10px;
+    margin-bottom:10px;
+    background-color : #d0f0c0;
+    
+}
+
+.active{
+    background-color : #3bb143;
+}
+
+.container{
+    padding: 2px 16px;
+}
+
 }
